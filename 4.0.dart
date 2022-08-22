@@ -12,12 +12,13 @@ Example: n = 86240 should return "(2**5)(5)(7**2)(11)"
 */
 
 void main() {
-  primeFactors(7775460);
+  primeFactors(933555431);
 }
 
 String primeFactors(int n) {
     List<int> result = [];
     int start = 2;
+    String show = "";
     while (n != 1) {
       if(n % start == 0) {
         n = n ~/ start;
@@ -26,23 +27,42 @@ String primeFactors(int n) {
         start += 1;
       }
     }
+    print(result);
     int x = result.reduce((curr, next) => curr > next? curr: next);
-    List _x = [];
-    var main = "";
-    for(var i = 2 ; i <= x ; i ++){
-     List _r =  result.where((element) => element.toString().contains(i.toString())).toList();
-     if(_r.isNotEmpty){
-      print(_r);
-        if(_r.length == 1){
-          var a = "(${_r[0]})";
-          main += a;
-        }else{
-          var b = "(${_r[0]}**${_r.length})";
-          main += b;
+    // var main = "";
+    List _main = [];
+    if(result.length > 1){
+      for(var i = 2 ; i <= x ; i ++){
+      List _r =  result.where((element) => element.toString().contains(i.toString())).toList();
+        if(_r.isNotEmpty){
+          print(_r);
+            if(_r.length == 1){
+              var a = "(${_r[0]})";
+              _main.add(a);
+            }else{
+              num sum = _r.fold(0, (previous, current) => previous + current);
+              int _sum = int.parse("$sum");
+              if(_sum % _r[0] == 0){
+                var b = "(${_r[0]}**${_r.length})";
+                _main.add(b);
+              }else{
+                var _b = "(${_r[0]})";
+                _main.add(_b);
+              }
+            }
         }
-     }
+      }
+    }else{
+      var _a = "(${result[0]})";
+      _main.add(_a);
     }
-    return main.toString();
+    List _unmain = _main.toSet().toList();
+    print(_unmain..sort());
+    for(var i in _unmain){
+      show += i;
+    }
+    print(show);
+    return show;
 }
 
 
