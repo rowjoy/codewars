@@ -11,60 +11,78 @@ Example: n = 86240 should return "(2**5)(5)(7**2)(11)"
 
 */
 
+
+
 void main() {
-  primeFactors(933555431);
+  primeFactors(342217392);
 }
 
-String primeFactors(int n) {
-    List<int> result = [];
-    int start = 2;
-    String show = "";
-    while (n != 1) {
-      if(n % start == 0) {
-        n = n ~/ start;
-        result.add(start);
-      } else {
-        start += 1;
-      }
+// String primeFactors(int n) {
+//     List<int> result = [];
+//     int start = 2;
+//     String show = "";
+//     while (n != 1) {
+//       if(n % start == 0) {
+//         n = n ~/ start;
+//         result.add(start);
+//       } else {
+//         start += 1;
+//       }
+//     }
+//     print(result);
+//     List _main = [];
+//     if(result.length > 1){
+//      for(var i in result){
+//        List _r =  result.where((element) => element.toString().contains(i.toString())).toList();
+//        if(_r.length < 2){
+//          var a = "(${_r.first})";
+//          _main.add(a);
+//        }else{
+//          num sum = _r.fold(0, (previous, current) => previous + current);
+//          if(sum % _r[0] == 0){
+//             var b = _r.length;
+//             var a = "(${_r[0]}**$b)";
+//             _main.add(a);
+//          }else{
+//            for(var i in _r){
+//               _main.add("($i)");
+//            }
+//          }
+//        }
+//      }
+//     }else{
+//       var _a = "(${result[0]})";
+//       _main.add(_a);
+//     }
+//     List original = _main.toSet().toList();
+//     for(var i in original){
+//       show += i;
+//     }
+//     print(show);
+//     return show;
+// }
+
+String primeFactors(int n) 
+{
+  String result = "";
+  int i = 2;
+  while (n > 1)
+  {
+    while (n % i == 0)
+    {
+      result += i.toString() + "*";
+     
     }
-    print(result);
-    int x = result.reduce((curr, next) => curr > next? curr: next);
-    // var main = "";
-    List _main = [];
-    if(result.length > 1){
-      for(var i = 2 ; i <= x ; i ++){
-      List _r =  result.where((element) => element.toString().contains(i.toString())).toList();
-        if(_r.isNotEmpty){
-          print(_r);
-            if(_r.length == 1){
-              var a = "(${_r[0]})";
-              _main.add(a);
-            }else{
-              num sum = _r.fold(0, (previous, current) => previous + current);
-              int _sum = int.parse("$sum");
-              if(_sum % _r[0] == 0){
-                var b = "(${_r[0]}**${_r.length})";
-                _main.add(b);
-              }else{
-                var _b = "(${_r[0]})";
-                _main.add(_b);
-              }
-            }
-        }
-      }
-    }else{
-      var _a = "(${result[0]})";
-      _main.add(_a);
-    }
-    List _unmain = _main.toSet().toList();
-    print(_unmain..sort());
-    for(var i in _unmain){
-      show += i;
-    }
-    print(show);
-    return show;
+    i++;
+  }
+  var  v = result.substring(0, result.length - 1);
+  print(v);
+  return result.substring(0, result.length - 1);
 }
 
+
+
+//'(2**4)(3)(11)(43)(15073)'
 
 // public static String factors(int lst)
 // {
