@@ -34,7 +34,7 @@ int nbDig(int n, int d) {
   return count;
 }
 
-int nbDig1(int n, int d) {
+int nbDig1 (int n, int d) {
   int result = 0;
   for (int i = 0; i <= n; i++) {
     (i * i).toString().split('').map(int.parse).forEach((e) {
