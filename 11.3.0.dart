@@ -18,7 +18,6 @@ Even though there are no spaces, it is still valid because none are needed:
 
 
  */
-
 void main() {
   valid_spacing('a');
 }
