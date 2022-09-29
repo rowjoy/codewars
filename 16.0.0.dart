@@ -51,7 +51,5 @@ List<int> rowWeights(List<int> arr) {
      _n = _b.reduce((value, element) => value + element);
   }
 
-  print([_m, _n]);
   return [_m, _n];
-  // return [0 ,0];
 }
