@@ -18,7 +18,7 @@ If you enjoyed this kata more advanced and generalized version of it can be foun
 
 [Personal thanks to Professor Jim Fowler on Coursera for his awesome classes that I really recommend to any math enthusiast and for showing me this mathematical curiosity too with his usual contagious passion :)]
 
- */
+*/
 
 void main() {
   _aonacci([1, 1,1], 10);
