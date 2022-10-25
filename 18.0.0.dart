@@ -12,3 +12,8 @@ String bool_to_word(bool boolean) {
   }
   return _a;
 }
+
+
+String data (String str){
+ return str.toUpperCase();
+}
