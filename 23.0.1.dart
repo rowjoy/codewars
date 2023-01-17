@@ -51,3 +51,5 @@ List<List<int>> pyramid2(int n) {
   }
   return resArray;
 }
+
+
