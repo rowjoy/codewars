@@ -1,4 +1,4 @@
-import 'dart:math';
+
 
 void main() {
   squareSum([1, 2, 2]);
