@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 /* 
 
 Given a positive number n > 1 find the prime factor decomposition of n. The result will be a string with the following form :
@@ -50,7 +52,7 @@ String primeFactors(int n) {
       var _a = "(${result[0]})";
       _main.add(_a);
     }
-    List _o = [];
+    List o = [];
     List original = _main.toSet().toList();
     for(var i in result.toSet()){
       List _t = original.where((element) => element.toString().contains(i.toString())).toList();
